@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Victor Cortez</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendor/devicons/css/devicons.min.css" rel="stylesheet">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/colors.css" rel="stylesheet">
+
+
+    <!--favicon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="img/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--manifest-->
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="myresume">
+    <meta name="apple-mobile-web-app-title" content="myresume">
+    <meta name="msapplication-starturl" content="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--serviceworker-->
+    <script>
+        //This is the "Offline page" service worker
+
+        //Add this below content to your HTML page, or add the js file to your page at the very top to register sercie worker
+        if (navigator.serviceWorker.controller) {
+            console.log('[PWA Builder] active service worker found, no need to register')
+        } else {
+            //Register the ServiceWorker
+            navigator.serviceWorker.register('pwabuilder2-sw.js', {
+                scope: './'
+            }).then(function(reg) {
+                console.log('Service worker has been registered for scope:' + reg.scope);
+            });
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+    <div class="jumbotron">
+        <h1 class="display-3">Bom dia</h1>
+        <p class="lead">Digite o resultado do seu teste de insulina.</p>
+        <hr class="my-4">
+
+        <div class="form-group row">
+
+            <div class="col-sm-12 col-md-12 col-lg-5">
+                <div class="form-group row">
+                        <label for="main-input" class="col-sm-10 col-md-5 col-form-label">Valor (unidade):</label>
+                    <div class="col-sm-8 col-md-3">
+                        <input class="form-control" type="number" value="" id="main-input">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-12 col-lg-5">
+                <div class="form-group row">
+                    <label class="col-sm-8 col-md-10 col-form-label">Quantidade de remedio a ser utilizada (ml):  <p id = "result"></p> </label>
+                </div>
+            </div>
+
+        </div>
+
+        <p>Confirme o resultado apertando o botão</p>
+        <p class="lead">
+            <a class="btn btn-success btn-lg" onclick="myFunction()" id="botao1" href="#" role="button">Confirmar</a>
+        </p>
+    </div>
+    </div>
+
+    <script>
+        function myFunction() {
+            result = document.getElementById("result");
+            input = document.getElementById("main-input");
+            result.innerHTML = input.value*2;
+        }
+
+    </script>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+
+</body>
+
+</html>
